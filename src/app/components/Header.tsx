@@ -2,32 +2,70 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
+import { usePathname } from "next/navigation"; // Use usePathname instead of useRouter
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname(); // Get the current route path
+
+  const activeLinkClass = "text-blue-200"; // Class for active links
+  const hoverClass = "hover:text-blue-200 transition"; // Hover effect
+
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false); // Close the menu when a link is clicked
+  };
 
   return (
-    <header className="bg-blue-600 text-white shadow-md">
+    <header className="bg-blue-600 text-white shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="text-xl font-bold">
-            <Link href="/" className="text-white">
-              <Image
+            <Link href="/" className="text-white flex items-center">
+              {/* <Image
                 width={100}
-                height={8}          
-              src="/assets/logo.png" alt="WaterCent" className="h-8" />
+                height={30}
+                src="/assets/logo.png"
+                alt="WaterCent"
+                className="h-8 mr-2"
+              /> */}
+              <span className="text-2xl font-bold">WaterCent</span> {/* Text logo */}
             </Link>
           </div>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex space-x-6">
-            <Link href="/" className="hover:text-blue-200">Home</Link>
-            <Link href="/about" className="hover:text-blue-200">About</Link>
-            <Link href="/services" className="hover:text-blue-200">Services</Link>
-            <Link href="/order" className="hover:text-blue-200">Order</Link>
-            <Link href="/contact" className="hover:text-blue-200">Contact</Link>
+            <Link
+              href="/"
+              className={`${pathname === "/" ? activeLinkClass : ""} ${hoverClass}`}
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className={`${pathname === "/about" ? activeLinkClass : ""} ${hoverClass}`}
+            >
+              About
+            </Link>
+            <Link
+              href="/services"
+              className={`${pathname === "/services" ? activeLinkClass : ""} ${hoverClass}`}
+            >
+              Services
+            </Link>
+            <Link
+              href="/order"
+              className={`${pathname === "/order" ? activeLinkClass : ""} ${hoverClass}`}
+            >
+              Order
+            </Link>
+            <Link
+              href="/contact"
+              className={`${pathname === "/contact" ? activeLinkClass : ""} ${hoverClass}`}
+            >
+              Contact
+            </Link>
             <Link
               href="/order"
               className="text-white bg-orange-500 px-4 py-2 rounded-md hover:bg-orange-600 transition"
@@ -63,15 +101,46 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-blue-700 text-white p-4">
+        <div className="md:hidden bg-blue-700 text-white p-4 absolute w-full top-16 left-0 z-40">
           <nav className="space-y-4">
-            <Link href="/" className="block">Home</Link>
-            <Link href="/about" className="block">About</Link>
-            <Link href="/services" className="block">Services</Link>
-            <Link href="/order" className="block">Order</Link>
-            <Link href="/contact" className="block">Contact</Link>
+            <Link
+              href="/"
+              onClick={handleLinkClick} // Close the menu when clicked
+              className={`${pathname === "/" ? activeLinkClass : ""} block`}
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              onClick={handleLinkClick} // Close the menu when clicked
+              className={`${pathname === "/about" ? activeLinkClass : ""} block`}
+            >
+              About
+            </Link>
+            <Link
+              href="/services"
+              onClick={handleLinkClick} // Close the menu when clicked
+              className={`${pathname === "/services" ? activeLinkClass : ""} block`}
+            >
+              Services
+            </Link>
             <Link
               href="/order"
+              onClick={handleLinkClick} // Close the menu when clicked
+              className={`${pathname === "/order" ? activeLinkClass : ""} block`}
+            >
+              Order
+            </Link>
+            <Link
+              href="/contact"
+              onClick={handleLinkClick} // Close the menu when clicked
+              className={`${pathname === "/contact" ? activeLinkClass : ""} block`}
+            >
+              Contact
+            </Link>
+            <Link
+              href="/order"
+              onClick={handleLinkClick} // Close the menu when clicked
               className="block text-center text-white bg-orange-500 px-4 py-2 rounded-md hover:bg-orange-600"
             >
               Order Now

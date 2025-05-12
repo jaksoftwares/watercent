@@ -1,7 +1,7 @@
 import Head from 'next/head'; // Import Next.js Head component
 import Header from './components/Header';
 import Footer from './components/Footer'; 
-import "./globals.css"; // Import global CSS styles
+import "./globals.css"; 
 
 const Layout = ({ children, pageTitle, pageDescription }: { 
   children: React.ReactNode; 
