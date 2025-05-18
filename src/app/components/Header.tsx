@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 // import Image from "next/image";
-import { usePathname } from "next/navigation"; // Use usePathname instead of useRouter
+import { usePathname } from "next/navigation"; 
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

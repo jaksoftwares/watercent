@@ -37,7 +37,7 @@ const AboutPage = () => {
           </div>
           <div className="w-full h-80 relative rounded-xl overflow-hidden shadow-lg">
             <Image
-              src="/about-team.jpg"
+              src="/people.jpg"
               alt="WaterCent Team"
               fill
               className="object-cover"
