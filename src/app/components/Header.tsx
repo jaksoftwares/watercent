@@ -9,8 +9,8 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname(); // Get the current route path
 
-  const activeLinkClass = "text-blue-200"; // Class for active links
-  const hoverClass = "hover:text-blue-200 transition"; // Hover effect
+  const activeLinkClass = "text-yellow-400 font-semibold";
+  const hoverClass = "hover:text-yellow-300 transition";
 
   const handleLinkClick = () => {
     setIsMobileMenuOpen(false); // Close the menu when a link is clicked

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaRegHeart } from "react-icons/fa";
+
 
 const Hero = () => {
   return (
@@ -7,13 +7,16 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/bg1.jpg" // Add your own hero background image here
+          src="/bg1.jpg"
           alt="WaterCent Services"
           layout="fill"
           objectFit="cover"
           className="opacity-70"
         />
       </div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-50 z-0" />
 
       {/* Hero Content */}
       <div className="relative z-10 flex items-center justify-center h-full text-center px-6 sm:px-12">
@@ -35,10 +38,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Heart Icon (optional) */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-xl">
-        <FaRegHeart size={30} className="animate-pulse text-red-500" />
-      </div>
+      
     </section>
   );
 };
