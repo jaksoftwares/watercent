@@ -14,16 +14,24 @@ const Layout = ({ children, pageTitle, pageDescription }: {
     <div className="flex flex-col min-h-screen">
       {/* Head for SEO meta tags */}
       <Head>
-        <title>{pageTitle ? `${pageTitle} | WaterCent` : 'WaterCent'}</title>
-        <meta name="description" content={pageDescription || 'We provide water, gas refills, and related accessories for your convenience.'} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={pageTitle ? `${pageTitle} | WaterCent` : 'WaterCent'} />
-        <meta property="og:description" content={pageDescription || 'We provide water, gas refills, and related accessories for your convenience.'} />
-        <meta property="og:url" content="https://www.watercent.com" />
-        <meta property="og:image" content="/path-to-image.jpg" /> {/* Replace with an actual image URL */}
-      </Head>
+      <title>{pageTitle ? `${pageTitle} | WaterCent` : 'WaterCent'}</title>
+      <meta name="description" content={pageDescription || 'We deliver water, gas refills, and accessories fast and reliably.'} />
+
+      {/* Open Graph */}
+      <meta property="og:title" content={pageTitle ? `${pageTitle} | WaterCent` : 'WaterCent'} />
+      <meta property="og:description" content={pageDescription || 'We deliver water, gas refills, and accessories fast and reliably.'} />
+      <meta property="og:image" content="https://www.watercent.com/og-preview.jpg" /> {/* Replace with your real image URL */}
+      <meta property="og:url" content="https://www.watercent.com" />
+
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={pageTitle ? `${pageTitle} | WaterCent` : 'WaterCent'} />
+      <meta name="twitter:description" content={pageDescription || 'We deliver water, gas refills, and accessories fast and reliably.'} />
+      <meta name="twitter:image" content="https://www.watercent.com/og-preview.jpg" /> {/* Same image as above */}
+
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+
 
       {/* Header */}
       <Header />
